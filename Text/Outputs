@@ -18,8 +18,7 @@ What I know for certain:
 - Model: qwen3.8:27b, custom provider (from env vars, the Hermes custom provider env
  var is HERMES_CUSTOM_136_160_215_236_11434_API_KEY → local IP 136.160.215.236:11
 434 = Ollama endpoint). Context platform is cli.
-- Session: local-7121d6aa...; user is student (uid 1000) on host Linux 6.17.8-tsur
-ugi.
+- Session: local-7121d6aa...; user is student (uid 1000) on host Linux 6.17.8-tsurugi.
 - Tools: the full set listed in my toolset — terminal, file tools (read_file, write
 _file, patch, search_files), web (web_search, web_extract, browser_exec), memory,
  skill (skill_view, skills_list, skill_manage), clarify, delegate_task, execute_code
