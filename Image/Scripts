@@ -1,1 +1,13 @@
+cd /home/student/final/image - Open your evidence folder
+file case_image_01.png and  file case_image_01_real.png - Verify the actual file types
+sha256sum case_image_01.png sha256sum case_image_01_real.png - Calculate the SHA-256 hashes
+exiftool case_image_01_real.png - Examine image metadata
+sudo apt install libimage-exiftool-perl - This examines available metadata. If exiftool is not installed
+hermes - Start Hermes
+tesseract case_image_01_real.png stdout - Verify readable text
+
+
+
+
+
 
