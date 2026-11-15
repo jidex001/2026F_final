@@ -1,1 +1,43 @@
-
+Prompt 1: Identify relevant people, objects, vehicles, screens, text, and actions without asserting unverified identities or intent.
+Output:
+The video contains a single static dark screen displaying white and gold text rather than any people, objects, vehicles, or physical environments. 
+The visible text initially presents a title card reading "SYNTHETIC TRAINING VIDEO," "EVIDENCE BOX," and "CASE V-01," followed by a status indicator 
+toggling from "SEALED" to "OPEN FOR REVIEW" and back to "SEALED," concluding with the text "END OF SYNTHETIC EVENT" before fading to black. No human 
+operators, automated systems, or underlying intentions behind these text transitions are depicted.
+Prompt 2: Track an object or individual across selected frames and report uncertainty.
+Output:
+Because no physical objects or individuals appear in the footage, tracking focuses on the central status text element across the sampled one-frame-per-second 
+snapshots. The text begins as "SEALED," transitions to "OPEN FOR REVIEW" in the middle frames, and reverts to "SEALED" prior to the closing title card. 
+Uncertainty remains regarding the exact timestamps of these transitions due to the one-second sampling interval, overlapping text glyphs that temporarily
+obscure legibility, and several timed-out full-resolution frames (frames 5, 7, and 8) whose states had to be inferred from adjacent frames.
+Prompt 3: Extract visible or spoken information and link every claim to a timestamp.
+Output:
+No spoken information is present as the file contains no audio track, leaving only on-screen text extracted from approximate one-second intervals. From 
+approximately00:00 to 00:02, the screen displays the header "SYNTHETIC TRAINING VIDEO," "EVIDENCE BOX," and "CASE V-01" alongside the initial status "SEALED." 
+Around 00:03 to 00:05, the status text shifts to "OPEN FOR REVIEW," before reverting back to "SEALED" around 00:06 to 00:07. At approximately 00:08, the 
+display updates to "END OF SYNTHETIC EVENT," followed by a fade to a completely black frame by 00:09.
+Prompt 4: Compare full-video analysis with sampled-frame and audio-transcript analysis.
+Output:
+Full-video analysis captures continuous frame-by-frame transitions, exact millisecond timestamps, and subtle visual shifts such as font color changes between
+gold and white, whereas sampled-frame analysis at one frame per second only captures discrete snapshots and misses rapid intermediate animations. Because the 
+video lacks an audio track, audio-transcript analysis yields no data and cannot supplement visual gaps, making denser frame sampling necessary to match the 
+precision of a full-video review.
+Prompt 5: Detect breaks, missing segments, edits, or inconsistent file information without overstating whether the video is genuine.
+Output:
+The footage exhibits abrupt state changes in its on-screen status text without visible transition animations, alongside overlapping text layers where words 
+like "SEALED" collide with "EVIDENCE BOX." Additionally, full-resolution reads failed or timed out on frames 5, 7, and 8 during inspection, creating gaps in 
+direct observation. While the text explicitly labels the clip as a "SYNTHETIC TRAINING VIDEO" and "SYNTHETIC EVENT," these visual artifacts and missing frame 
+reads reflect presentation formatting and processing constraints rather than proof of external tampering or definitive authenticity.
+Prompt 6: Separate visible actions from inferred motives or causation.
+Output:
+The video literally displays a static dark title card labeled "SYNTHETIC TRAINING VIDEO," "EVIDENCE BOX," and "CASE V-01," a status word toggling from "SEALED" 
+to "OPEN FOR REVIEW" and back to "SEALED," the appearance of "END OF SYNTHETIC EVENT," and a fade to black. Any inferred motives or causation—such as an underlying
+decision to open or seal a case, the assumption that one status state triggered the next, or the conclusion that a specific person or automated system initiated 
+the changes—are not shown in the footage.
+Prompt 7: Explain what may have been missed because of frame sampling, resolution, occlusion, audio quality, or model limitations.
+Output:
+Due to frame sampling at one frame per second, intermediate visual transitions, text flashing for less than a second, and exact state-change timestamps may have 
+been missed. Downscaled 320-pixel contact-sheet resolution and overlapping text glyphs caused visual ambiguity that could obscure small watermarks or codes, while
+the absence of an audio track prevented verification of any embedded sound cues. Finally, model limitations—including timed-out full-resolution frames 
+(frames 5, 7, and 8), difficulty reliably distinguishing gold from white text, semantic rather than pixel-exact text reading, and a lack of ground truth regarding
+intended timing—meant certain details were inferred rather than directly confirmed.
