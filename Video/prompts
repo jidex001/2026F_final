@@ -1,1 +1,8 @@
-
+Produce a timestamped sequence of observable events.
+Identify relevant people, objects, vehicles, screens, text, and actions without asserting unverified identities or intent.
+Track an object or individual across selected frames and report uncertainty.
+Extract visible or spoken information and link every claim to a timestamp.
+Compare full-video analysis with sampled-frame and audio-transcript analysis.
+Detect breaks, missing segments, edits, or inconsistent file information without overstating whether the video is genuine.
+Separate visible actions from inferred motives or causation.
+Explain what may have been missed because of frame sampling, resolution, occlusion, audio quality, or model limitations
