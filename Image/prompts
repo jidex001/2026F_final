@@ -1,1 +1,8 @@
-
+Describe only the visible contents of /home/student/final/image/case_image_01_real.png. Identify objects and their positions without making assumptions about their purpose.
+Examine /home/student/final/image/case_image_01_real.png and identify all visible objects, people, computer screens, text, timestamps, and environmental details. Do not identify any person or location without supporting evidence.
+Extract all readable text from /home/student/final/image/case_image_01_real.png. Identify where each text item appears and compare your results with conventional OCR or manual transcription. Clearly identify any uncertain characters.
+Analyze /home/student/final/image/case_image_01_real.png and separate direct visual observations from interpretations or assumptions. Clearly label each finding as observed, inferred, or unverified.
+Examine the metadata of /home/student/final/image/case_image_01_real.png separately from its visual contents. Report the filename, actual file format, dimensions, file size, SHA-256 hash, timestamps, and available metadata. Explain which properties can be independently verified.
+Examine /home/student/final/image/case_image_01_real.png for visible indications of cropping, editing, manipulation, or AI generation. Distinguish suspicious features from verified alterations and explain the limitations of visual inspection.
+Identify which conclusions about /home/student/final/image/case_image_01_real.png require specialist forensic tools or additional evidence. Recommend appropriate verification methods and explain what each method could establish.
+Determine whether any person or location can be reliably identified from /home/student/final/image/case_image_01_real.png. Do not infer identity or geographic location solely from appearance, objects, or text unless independently verified.
