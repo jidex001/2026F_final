@@ -1,1 +1,8 @@
-
+/home/student - Navigate to the student directory
+/home/student/case_video_01.mp4 - Access the video evidence file
+file /home/student/case_video_01.mp4 - Verify the actual file type
+sha256sum /home/student/case_video_01.mp4 - Calculate the SHA-256 hash of the video
+ffprobe /home/student/case_video_01.mp4 - Examine video metadata, codecs, and stream information
+sudo apt install ffmpeg - Install ffmpeg for media analysis tools if ffprobe is not installed
+hermes - Start Hermes
+ffmpeg -i /home/student/case_video_01.mp4 -ss 00:00:05 -vframes 1 /home/student/case_video_frame.png - Extract a key frame from the video for visual inspection
