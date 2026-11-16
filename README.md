@@ -14,7 +14,6 @@ This project evaluates Hermes Agent as an investigative assistant for four instr
 
 - **Final report:** [`report/final_report.pdf`](report/final_report.pdf) — complete report, references, and appendices.
 - **Final presentation:** [`presentation/final_presentation.pptx`](presentation/final_presentation.pptx) — project summary and supporting screenshots.
-- **Final commit ID:** `TO BE FILLED AFTER FINAL COMMIT` (run `git rev-parse HEAD` and replace this text).
 
 > These links indicate the required submission paths. Confirm the files exist before submitting.
 
