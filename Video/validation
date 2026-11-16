@@ -1,34 +1,33 @@
-name: Validate Forensic Workflows and Scripts
+Video: case_video_01.mp4
 
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+Identity and format
 
-jobs:
-  validate-ci:
-    name: Lint and Validate
-    runs-on: ubuntu-latest
+Check	Result
+MD5	00ba06c33c57a2ede837c9ce7bfc68fc (32 characters)
+SHA-256	Not recorded in your notes; the agent reported it unchanged
+Format	MP4, H.264, 1280 × 720, 30 FPS, 10 s
+Size	169,004 bytes (169.0 kB, or 165.0 KiB)
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+Preparation: ffprobe, ffmpeg frames, and an extracted audio track. The original was never opened for writing.
 
-      - name: Install ShellCheck
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y shellcheck
+Claim validation
 
-      - name: Validate Shell Scripts
-        run: |
-          echo "Checking shell scripts for syntax errors and best practices..."
-          # Scans any .sh files in the repository for potential bugs
-          find . -name "*.sh" -exec shellcheck {} + || echo "No .sh scripts found or check completed with notes."
+Hermes claim	Verdict	Validated by
+10 s, 1280×720, 30 FPS, H.264	Supported	ffprobe
+No audio track	Incorrect	440 Hz tone confirmed by extraction
+Nothing beyond two slates	Incorrect	Four card states plus blanks
+No people or objects	Supported	Frames and full-resolution checks
+Card is “static”	Incorrect	Center text changes
+“About 169 KB”	Supported in decimal units	169,004 ÷ 1,000
+More than 95% confidence	Unverifiable	Agent’s own estimate
+File may be assembled programmatically	Supported, not decisive	Encoder tag only
 
-      - name: Validate GitHub Actions Workflows (`actionlint`)
-        uses: reviewdog/action-actionlint@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-check
-          level: error
+Gaps in your records:
+
+Tone: one answer says 404 Hz and the rest say 440 Hz.
+Timings: SEALED and OPEN FOR REVIEW appear at 3.5 s and 5.5 s in one answer, and at 3.0 s and 5.0 s in another.
+Sampling rate: 1 fps and 3 fps are both cited.
+
+Do this: run sha256sum, then ffprobe -show_frames and one fixed ffmpeg -vf fps=... extraction so the timeline comes from one measured source.
+
+Verdict: stream facts validated, early claims disproved, timings still need one consistent measurement.
