@@ -1,1 +1,28 @@
+Audio: case_audio_01.wav
 
+Identity and format
+
+Check	Result
+SHA-256 as recorded	0cd29f7523e26597b051aa07ec4da9e2fb3eeedb97e21f3e68bb8f853220701, 63 characters, invalid as written
+First local copy	HTML saved from GitHub
+Format	WAV/RIFF, PCM 16-bit, mono, 16,000 Hz
+Size and duration	420,398 bytes, 13.135 s
+
+Arithmetic check: 420,398 bytes minus a 44-byte header, at 32,000 bytes per second, gives 13.136 s, so the recorded duration is consistent.
+
+Preparation: the transcript came from faster-whisper small.en, and Hermes analysed the transcript, not the waveform.
+
+Claim validation
+
+Hermes claim	Verdict	Validated by
+Both files are audio	Incorrect	file showed one HTML file
+One genuine WAV with the properties above	Supported	file, sha256sum, ffprobe
+Time 1530, Lab 7, “case drive beat 12”, no network, single speaker	Supported only if the transcript is right	No verified transcript
+“beat” may be “beta” or “B-12”	Ambiguous (correctly flagged)	Whisper uncertainty
+Nine events, timestamped to the millisecond	Estimates only	Word-alignment output
+Hum at 150–180 Hz and broadband noise	Observation supported, source (motor or fan) inferred	Spectral measurement
+No identity, emotion or intent supportable	Supported	Correct restraint
+
+Gaps: no verified transcript, and the hash record is incomplete. Do this: re-run sha256sum case_audio_01.wav and paste the full value, then listen to the file and compare it against the transcript word for word.
+
+Verdict: format validated, content only conditionally validated.
