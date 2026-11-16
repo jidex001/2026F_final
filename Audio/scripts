@@ -1,1 +1,28 @@
 
+
+#!/bin/bash
+
+# CYFI 725 - Audio Evidence Investigation
+# Evidence: case_audio_01.wav
+
+# Step 1: Open the audio evidence folder
+cd /home/student/final/audio || exit 1
+
+# Step 2: Display files in the folder
+pwd
+ls -la
+
+# Step 3: Verify the actual file format
+file case_audio_01.wav
+
+# Step 4: Calculate SHA-256 hash
+sha256sum case_audio_01.wav
+
+# Step 5: Examine audio metadata
+ffprobe -v error -show_format -show_streams case_audio_01.wav
+
+# Step 6: Verify file size
+wc -c case_audio_01.wav
+
+# Step 7: Start Hermes Agent
+hermes
