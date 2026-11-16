@@ -1,1 +1,30 @@
 
+#!/bin/bash
+
+# CYFI 725 - Text Evidence Investigation
+# Evidence: case_text_01.txt
+
+# Step 1: Open the text evidence folder
+cd /home/student/final/text || exit 1
+
+# Step 2: Verify the file format
+file case_text_01.txt
+
+# Step 3: Calculate the SHA-256 hash
+sha256sum case_text_01.txt
+
+# Step 4: Calculate the MD5 hash
+md5sum case_text_01.txt
+
+# Step 5: Verify the file size in bytes
+wc -c case_text_01.txt
+
+# Step 6: Count the lines
+wc -l case_text_01.txt
+
+# Step 7: Display the evidence contents
+cat case_text_01.txt
+
+# Step 8: Start Hermes Agent
+hermes
+
