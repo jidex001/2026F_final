@@ -1,1 +1,25 @@
+Image: case_image_01.png
 
+Identity and format
+
+Check	Result
+SHA-256 (valid file, case_image_01_real.png)	17679cf02e158d6153d2c01335587c13c4a566cf1d9fa516627f1b58633f0bc8 (64 characters)
+First local copy	HTML, 213,791 bytes, SHA-256 878859f1…, not an image
+Format and size	PNG, 1536 × 1024, 1,920,381 bytes
+
+Preparation: the vision tool failed on the original, so a resized copy and selected regions were used. No OCR tool was involved.
+
+Claim validation
+
+Hermes claim	Verdict	Validated by
+Login screen shows CASE-LAB-07 and analyst	Supported	Visible text, region checks
+Notebook reads “Meeting 15:30” and “Locker B12”	Reading supported, meaning unverified	Region checks only
+USB drive, mug, lamp, plants, wall clock	Supported	Visible objects
+Image looks synthetic or staged	Unsupported	No forensic tool used
+USB drive as a “data-handling vector”	Unsupported	No evidence of contents or use
+Time shown by the wall clock	Ambiguous	Not verified
+Creator, location, alterations	Missing	Not established
+
+Gaps: no independent OCR or manual transcription, and the manifest match for the image hash isn’t shown in your notes. Do this: run sha256sum case_image_01.png, file, exiftool, and an independent OCR such as tesseract.
+
+Verdict: format validated, observations validated, interpretations not validated.
