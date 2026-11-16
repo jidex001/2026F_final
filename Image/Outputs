@@ -1,2 +1,125 @@
-njjkdfjnkf;nlkjfg;lknbgfd;klkvldlkvd
-c., vcmlvcmlkvclkvc;lkc
+CYFI 725 — Final Project Report
+
+Image Evidence Investigation 
+
+4.1 Questions Required for Every Investigation
+
+1. What investigative question is the agent being asked to answer?
+The investigation asks whether Hermes Agent can accurately analyze an image, describe its visible contents, identify objects and text, and distinguish direct observations from assumptions. The goal is to determine whether Hermes can provide reliable forensic findings without making unsupported claims about the image.
+
+2. What evidence was supplied, and what is its hash, source, and format? What expected result did the team establish independently, and how?
+The evidence consisted of files obtained from the CYFI 725 benchmark dataset hosted on GitHub.
+Evidence file: case_image_01_real.png/case_image_01.png
+Format: PNG image (real evidence); HTML document (mislabeled .png file)
+Size: 1,920,381 bytes / 213,791 bytes
+SHA-256: 17679cf02e158d6153d2c01335587c13c4a566cf1d9fa516627f1b58633f0bc8/878859f1c667401e5044879c4739b03fda8a3e41c4904c8d475a10d5b9193264
+Source: CYFI 725 benchmark repository
+An initial file named case_image_01.png was actually HTML content rather than a valid PNG image.
+The expected findings included identifying visible objects, reading text, and separating observations from interpretations. However, the attached report does not document a complete independently verified expected result for the image or the exact manual verification procedure.
+
+3. Did the agent access the evidence directly, or was the evidence first prepared with another tool, such as OCR, transcription, or frame extraction?
+Hermes initially attempted to analyze the original image directly using its vision tool, but the attempts failed.
+The image was then resized to a smaller PNG file, allowing Hermes to complete its visual analysis. Additional image regions were examined to confirm certain details.
+No separate OCR or transcription tool was documented for the successful image analysis.
+
+4. What exact prompt, agent version, model, tools, permissions, and settings were used?
+The investigation used the following configuration:
+Agent: Hermes Agent v0.22.5
+Model: qwen3.8:27b
+Provider: ollama-cloud
+Operating environment: Linux
+Tools: vision_analyze, terminal commands, Python, file, and xxd
+Permissions: Terminal commands used smart approval in some cases, while other actions required user approval.
+Configuration file: ~/.hermes/config.yaml
+The image-related instructions included describing only visible content, identifying objects and text, examining metadata separately, and reporting uncertainty.
+The exact complete prompt and all permission settings are not fully reproduced in the attached report.
+
+5. What factual claims did the agent produce?
+Hermes identified several objects and details in the image, including:
+A computer screen displaying a login interface.
+The visible text CASE-LAB-07 and account name analyst.
+A notebook containing Meeting 15:30 and Locker B12.
+A USB drive on the desk.
+Other visible objects, including a blue mug, desk lamp, plants, and wall clock.
+Hermes also suggested that the image appeared synthetic or staged. This was an interpretation rather than a verified fact.
+
+6. Which claims are directly supported, and where is the supporting evidence located?
+The claims about visible objects and text are supported by the image and Hermes's visual analysis results.
+Claim	Supporting evidence
+Computer login screen	Original PNG and visual analysis
+CASE-LAB-07	Text visible on the screen
+analyst	Account name on the login screen
+Meeting 15:30	Notebook text
+Locker B12	Notebook text
+USB drive, mug, lamp, plants	Objects visible in the image
+Image dimensions and format	File inspection results
+The supporting evidence is located in the original image, the resized working copy, and the Hermes terminal and vision-analysis outputs.
+The attached report contains an image-evidence section, but the visible extracted document text does not provide a complete figure-by-figure reference for these findings.
+
+7. Which claims are incorrect, unsupported, missing, ambiguous, or unverifiable?
+Some findings could not be fully verified.
+Image authenticity: Hermes suggested the image might be synthetic, but this was not confirmed using specialist forensic tools.
+USB drive: Its presence was visible, but there was no evidence proving it contained confidential information or was used for data theft.
+Notebook information: The meaning of Meeting 15:30 and Locker B12 was not independently established.
+Wall clock: The approximate time suggested by the agent was not conclusively verified.
+Missing information: The report does not establish who created the image, where it was captured, or whether it was altered.
+These limitations show why an examiner should not treat every AI-generated interpretation as a forensic fact.
+
+8. Did the agent separate what it directly observed from what it concluded, and did it report uncertainty?
+Hermes generally distinguished between visible evidence and interpretations. It identified objects and readable text while acknowledging that some conclusions required additional verification.
+For example, Hermes could observe a USB drive but could not establish what information it contained. Similarly, it could describe the image as synthetic-looking without proving that it was AI-generated.
+However, some interpretations could still be mistaken for established facts if the examiner did not review them carefully.
+
+9. Did the agent modify evidence, create files, contact external services, or perform unexpected actions?
+Hermes reported that it did not modify the original evidence files. It created a resized working copy to overcome the initial vision-analysis failures.
+The resized image was stored in a scratch directory rather than replacing the original.
+Hermes also used a configured vision/model provider, meaning image-analysis requests could involve communication with an external service. The report does not establish any unexpected evidence alteration or unauthorized file deletion.
+
+10. How did its results compare with the expected results established through a standard tool or manual examination?
+Hermes successfully identified several visible objects and extracted text after the image was resized. The additional image-region analysis helped confirm some of the text.
+However, its performance had limitations. The initial vision-analysis attempts failed, some observations remained uncertain, and conclusions about the image's origin or meaning were not independently verified.
+The attached report does not include a complete manual examination or conventional OCR comparison for the image. Therefore, the available information supports a partial comparison, not a claim that Hermes matched every expected result.
+
+11. What should a human examiner verify before relying on the result?
+Before relying on Hermes's findings, a human examiner should:
+Verify the original image's SHA-256 hash to confirm its integrity.
+Examine the original image manually and compare it with Hermes's descriptions.
+Confirm extracted text using manual transcription or an independent OCR tool.
+Review the image metadata and investigate possible alterations using forensic tools.
+Check the agent's logs, tool activity, and any generated working files.
+Separate directly observable facts from assumptions or interpretations.
+Document any unsupported findings, uncertainties, or errors before including them in the final report.
+
+4.3 Image Evidence Questions
+
+1. Describe only visible content before offering interpretations.
+Answer: Hermes Agent analyzed the image and identified a computer screen displaying a login interface, a notebook, a USB drive, a blue mug, a desk lamp, plants, and a wall clock. The computer screen displayed "CASE-LAB-07" and "analyst," while the notebook contained "Meeting 15:30" and "Locker B12." These were reported as visible observations without initially assigning suspicious meaning to the objects. Hermes later suggested that the image might be staged or synthetic, but this was an interpretation rather than a confirmed fact.
+
+2. Identify relevant objects, people, text, screens, timestamps, or environmental details.
+Answer: Hermes identified several important objects and details in the image, including:
+Computer screen: Displayed a login interface with "CASE-LAB-07" and "analyst."
+Notebook: Contained the handwritten information "Meeting 15:30" and "Locker B12."
+USB drive: Located on the desk.
+Other objects: Blue mug, desk lamp, plants, and wall clock.
+Time reference: "15:30" was visible in the notebook, but it was not independently verified as an event timestamp.
+These details could be useful during an investigation, but additional evidence would be needed to establish their significance.
+
+3. Extract visible text and compare it with conventional OCR or manual transcription.
+Answer: Hermes successfully identified visible text in the image, including "CASE-LAB-07," "analyst," "Meeting 15:30," and "Locker B12." The initial image analysis failed, so the image was resized before Hermes could complete the examination. Additional image regions were examined to help confirm certain details. However, the report did not document a complete comparison with conventional OCR software or an independently verified manual transcription. Therefore, the accuracy of all extracted text could not be fully confirmed.
+
+4. Distinguish direct visual observations from inferred context or identity.
+Answer: Hermes generally separated what it could directly observe from what it interpreted. For example, it identified a USB drive on the desk but did not establish that the device contained confidential information or was involved in data theft. Similarly, Hermes identified a login screen displaying "analyst," but that did not prove who was using the computer. The agent also suggested that the image appeared synthetic or staged, while acknowledging that this conclusion was not verified.
+
+5. Examine available metadata separately from visual content.
+Answer: Hermes examined the image's file properties separately from its visible contents. The evidence was identified as case_image_01_real.png, a PNG file measuring 1536 × 1024 pixels and containing 1,920,381 bytes. The SHA-256 hash was recorded as:
+17679cf02e158d6153d2c01335587c13c4a566cf1d9fa516627f1b58633f0bc8
+The file information established the image's format and provided a reference for integrity verification, while the visual analysis identified objects and text. However, the report did not establish the image's creation date, original capture location, or author.
+
+6. Identify content that may have been altered, cropped, generated, or presented in a misleading way without claiming more certainty than the evidence supports.
+Answer: Hermes suggested that the image might be synthetic or staged based on its appearance. However, it did not provide enough forensic evidence to confirm that the image was AI-generated, cropped, or manipulated. The report also showed that an initially downloaded file named case_image_01.png contained HTML rather than valid PNG image data. This demonstrated the importance of verifying file formats before analysis. Further forensic examination would be required to determine whether the actual image had been altered.
+
+7. Explain which conclusions require specialist tools or additional evidence.
+Answer: Hermes identified visible objects and text, but several conclusions required additional verification. Specialist image forensic tools would be needed to investigate possible manipulation or determine whether the image was generated artificially. Metadata examination could help establish the image's origin if relevant metadata were available. The USB drive would require separate forensic examination to determine its contents, and the notebook information would need supporting evidence to establish its meaning. Independent OCR or manual transcription would also help confirm the extracted text.
+
+8. Avoid identifying a person or location solely from appearance unless independently verified.
+Answer: Hermes did not establish the identity of any person or the actual location where the image was captured. Although the computer displayed "CASE-LAB-07" and the notebook referenced "Locker B12," these details were not sufficient to identify a real-world location. Likewise, the account name "analyst" did not establish the identity of the person using the computer. Additional evidence, such as system logs, verified records, or other supporting information, would be necessary before making those conclusions.
