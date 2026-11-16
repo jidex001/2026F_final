@@ -1,8 +1,45 @@
-Produce a timestamped sequence of observable events.
-Identify relevant people, objects, vehicles, screens, text, and actions without asserting unverified identities or intent.
-Track an object or individual across selected frames and report uncertainty.
-Extract visible or spoken information and link every claim to a timestamp.
-Compare full-video analysis with sampled-frame and audio-transcript analysis.
-Detect breaks, missing segments, edits, or inconsistent file information without overstating whether the video is genuine.
-Separate visible actions from inferred motives or causation.
-Explain what may have been missed because of frame sampling, resolution, occlusion, audio quality, or model limitations
+FIRST PROMPTS 
+
+For every investigation, answer all of the following:
+
+1. What investigative question is the agent being asked to answer?
+
+2. What evidence was supplied, and what is its hash, source, and format? What expected result did the team establish independently, and how?
+
+3. Did the agent access the evidence directly, or was the evidence first prepared with another tool, such as OCR, transcription, or frame extraction?
+
+4. What exact prompt, agent version, model, tools, permissions, and settings were used?
+
+5. What factual claims did the agent produce?
+
+6. Which claims are directly supported, and where is the supporting evidence located?
+
+7. Which claims are incorrect, unsupported, missing, ambiguous, or unverifiable?
+
+8. Did the agent separate what it directly observed from what it concluded, and did it report uncertainty?
+
+9. Did the agent modify evidence, create files, contact external services, or perform unexpected actions?
+
+10. How did its results compare with the expected results established through a standard tool or manual examination?
+
+11. What should a human examiner verify before relying on the result?
+
+SECOND PROMPTS
+
+Test whether the agent can:
+
+1. Produce a timestamped sequence of observable events.
+
+2. Identify relevant people, objects, vehicles, screens, text, and actions without asserting unverified identities or intent.
+
+3. Track an object or individual across selected frames and report uncertainty.
+
+4. Extract visible or spoken information and link every claim to a timestamp.
+
+5. Compare full-video analysis with sampled-frame and audio-transcript analysis.
+
+6. Detect breaks, missing segments, edits, or inconsistent file information without overstating whether the video is genuine.
+
+7. Separate visible actions from inferred motives or causation.
+
+8. Explain what may have been missed because of frame sampling, resolution, occlusion, audio quality, or model limitations.
