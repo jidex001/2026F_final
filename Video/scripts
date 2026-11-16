@@ -1,8 +1,46 @@
-/home/student - Navigate to the student directory
-/home/student/case_video_01.mp4 - Access the video evidence file
-file /home/student/case_video_01.mp4 - Verify the actual file type
-sha256sum /home/student/case_video_01.mp4 - Calculate the SHA-256 hash of the video
-ffprobe /home/student/case_video_01.mp4 - Examine video metadata, codecs, and stream information
-sudo apt install ffmpeg - Install ffmpeg for media analysis tools if ffprobe is not installed
-hermes - Start Hermes
-ffmpeg -i /home/student/case_video_01.mp4 -ss 00:00:05 -vframes 1 /home/student/case_video_frame.png - Extract a key frame from the video for visual inspection
+
+#!/bin/bash
+
+# CYFI 725 - Video Evidence Investigation
+# Evidence: case_video_01.mp4
+
+# Step 1: Open the evidence folder
+cd /home/student || exit 1
+
+# Step 2: Display available files
+pwd
+ls -la
+
+# Step 3: Verify the video file format
+file case_video_01.mp4
+
+# Step 4: Calculate the SHA-256 hash
+sha256sum case_video_01.mp4
+
+# Step 5: Examine video metadata
+ffprobe -v error -show_format -show_streams case_video_01.mp4
+
+# Step 6: Examine frame timestamps
+ffprobe -v error -select_streams v:0 \
+-show_entries frame=best_effort_timestamp_time,pict_type \
+-of csv=p=0 case_video_01.mp4
+
+# Step 7: Create a folder for extracted frames
+mkdir -p video_frames
+
+# Step 8: Extract one frame per second
+ffmpeg -i case_video_01.mp4 \
+-vf fps=1 video_frames/frame_%03d.png
+
+# Step 9: Extract keyframes
+mkdir -p video_keyframes
+
+ffmpeg -skip_frame nokey -i case_video_01.mp4 \
+-vsync vfr video_keyframes/key_%03d.png
+
+# Step 10: Extract the audio track
+ffmpeg -i case_video_01.mp4 \
+-vn -c:a pcm_s16le video_audio.wav
+
+# Step 11: Start Hermes Agent
+hermes
