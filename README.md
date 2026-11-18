@@ -65,6 +65,7 @@ video/
   screenshots/
   validation/
   scripts/
+Findings/
 .github/workflows/validate.yml  # if included in final repository
 ```
 
